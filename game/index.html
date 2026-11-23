@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solmar Bay — Open World Crime Game</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23ffd23f'/><text x='8' y='12' font-size='11' text-anchor='middle'>☀</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+  <div id="hud" class="hidden">
+    <div id="top-left">
+      <div id="wanted"></div>
+      <div id="cash">$<span id="cashVal">250</span></div>
+      <div id="healthBar"><div id="healthFill"></div><span id="healthText">100</span></div>
+      <div id="clock"><span id="timeText">09:00</span> <span id="dayText">Day 1</span></div>
+    </div>
+    <div id="top-right">
+      <div id="speedBox"><span id="speedVal">0</span><small> mph</small><div id="carName">On foot</div></div>
+      <canvas id="minimap" width="220" height="160"></canvas>
+    </div>
+    <div id="objective"><div id="objTitle">Free Roam</div><div id="objText">Explore Solmar Bay. Steal a car, earn cash, stay out of trouble.</div><div id="objDist"></div></div>
+    <div id="missionFeed"></div>
+    <div id="toast"></div>
+    <div id="crosshair"></div>
+    <div id="bottom-bar">
+      <div id="controlsHint">WASD move &nbsp;·&nbsp; E enter / exit car &nbsp;·&nbsp; Shift sprint &nbsp;·&nbsp; Mouse aim, Click shoot &nbsp;·&nbsp; F punch &nbsp;·&nbsp; R radio &nbsp;·&nbsp; M mission &nbsp;·&nbsp; P pause &nbsp;·&nbsp; H horn</div>
+      <div id="weaponBox"><span id="weaponName">Fists</span> <span id="ammoVal"></span></div>
+    </div>
+    <div id="wasted" class="hidden"><div class="big">BUSTED / WASTED</div><div id="wastedSub"></div><div class="hint">Press Enter to respawn at the hospital — $100 fee</div></div>
+  </div>
+  <div id="menu">
+    <div class="menu-inner">
+      <div class="kicker">AN ORIGINAL OPEN-WORLD CRIME GAME</div>
+      <h1>SOLMAR<br><span>BAY</span></h1>
+      <p class="tagline">Sun, salt air, and bad decisions. Two newcomers — <b>Mara Quinn</b> and <b>Dante Cole</b> — hustle their way from street corners to the top of Coral Coast's underworld.</p>
+      <div class="menu-stats"><span>🗺️ 1 open city</span><span>🚗 8 drivable cars</span><span>⭐ 5 wanted levels</span><span>🎯 6 story missions</span></div>
+      <button id="btnPlay" class="btn-primary">▶ &nbsp;START GAME</button>
+      <button id="btnContinue" class="btn-ghost hidden">Continue — <span id="continueInfo"></span></button>
+      <div class="menu-foot">WASD move · E steal / enter car · Mouse aim + click to shoot · M missions · P pause · Progress auto-saves</div>
+      <div class="menu-foot small">100% original: city, characters, story, art and music made for this game. No assets from any commercial game.</div>
+    </div>
+  </div>
+  <div id="pauseMenu" class="hidden">
+    <div class="menu-inner">
+      <h2>PAUSED</h2>
+      <div id="pauseStats"></div>
+      <button id="btnResume" class="btn-primary">Resume</button>
+      <button id="btnMissions" class="btn-ghost">Missions (M)</button>
+      <button id="btnSaveQuit" class="btn-ghost">Save &amp; back to title</button>
+      <div class="menu-foot">Missions, stats and radio are in the pause menu. Your progress saves automatically.</div>
+    </div>
+  </div>
+  <div id="missionPanel" class="hidden">
+    <div class="menu-inner">
+      <h2>MISSIONS</h2>
+      <div id="missionList"></div>
+      <button id="btnCloseMissions" class="btn-primary">Close</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/game.js"></script>
+</body>
+</html>
